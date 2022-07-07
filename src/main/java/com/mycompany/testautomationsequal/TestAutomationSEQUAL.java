@@ -17,11 +17,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
  */
 public class TestAutomationSEQUAL {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         runAutomation();
     }
 
-    public static void runAutomation() {
+    public static void runAutomation() throws InterruptedException {
 
         //Crea un grupo de opciones
         ChromeOptions options = new ChromeOptions();
@@ -34,26 +34,17 @@ public class TestAutomationSEQUAL {
         WebDriver driver = new ChromeDriver(options);
 
         //Define 10 segundos de espera maximo para encontrar los elementos
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         //Accede a la pagina web
         driver.get("https://www.exito.com/");
 
-//        //Espera 2 segundos      
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException ex) {
-//            Logger.getLogger(TestAutomationSEQUAL.class.getName()).log(Level.SEVERE, null, ex);
-//        }
         //Click en Mi cuenta       
         driver.findElement(By.xpath("//div[contains(@class,'vtex-menu-2-x-styledLinkContent vtex-menu-2-x-styledLinkContent--header-link')]")).click();
 
-//        //Espera 3 segundos      
-//        try {
-//            Thread.sleep(3000);
-//        } catch (InterruptedException ex) {
-//            Logger.getLogger(TestAutomationSEQUAL.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        //Espera 2 segundos      
+        Thread.sleep(2000);
+        
         //Click en ingresar con email
         driver.findElement(By.xpath("(//div[contains(@class,'vtex-button__label flex')])[3]")).click();
 
@@ -118,7 +109,7 @@ public class TestAutomationSEQUAL {
         } catch (InterruptedException ex) {
             Logger.getLogger(TestAutomationSEQUAL.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         //click atun ekono  
         driver.findElement(By.xpath("//span[text()='EKONO']/following::div[@class='exito-vtex-components-4-x-blockBuyButton']")).click();
 
@@ -146,7 +137,7 @@ public class TestAutomationSEQUAL {
         } catch (InterruptedException ex) {
             Logger.getLogger(TestAutomationSEQUAL.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         //click en carrito de compras
         driver.findElement(By.xpath("(//a[contains(@class,'exito-header-3-x-minicartLink')])")).click();
 
@@ -165,7 +156,7 @@ public class TestAutomationSEQUAL {
         } catch (InterruptedException ex) {
             Logger.getLogger(TestAutomationSEQUAL.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         //Cierra el navegador
         driver.close();
 
